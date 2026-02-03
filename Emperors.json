@@ -96,7 +96,7 @@
     "age": 63,
     "isActive": false,
     "birthDate": "0053-09-18",
-    "imageUrl": "https://example.com/images/emperors/trajan.jpg",
+    "imageUrl": "https://github.com/OliverVdN/Emperors/blob/main/Images/image.png?raw=true",
     "status": "Deceased",
     "titles": ["Imperator", "Optimus Princeps"],
     "era": {
