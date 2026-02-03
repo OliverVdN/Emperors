@@ -1,0 +1,182 @@
+[
+  {
+    "id": "EMP-001",
+    "name": "Augustus",
+    "description": "Augustus was de eerste Romeinse keizer en bracht stabiliteit na een lange periode van burgeroorlogen.",
+    "age": 75,
+    "isActive": false,
+    "birthDate": "0063-09-23",
+    "imageUrl": "https://example.com/images/emperors/augustus.jpg",
+    "status": "Deified",
+    "titles": ["Imperator", "Princeps", "Pontifex Maximus"],
+    "era": {
+      "id": "ERA-001",
+      "name": "Principate",
+      "startYear": -27,
+      "endYear": 284,
+      "description": "Periode waarin keizers formeel macht deelden met de Senaat."
+    }
+  },
+  {
+    "id": "EMP-002",
+    "name": "Tiberius",
+    "description": "Tiberius was een ervaren militair maar stond bekend om zijn teruggetrokken en wantrouwige regeerstijl.",
+    "age": 77,
+    "isActive": false,
+    "birthDate": "0042-11-16",
+    "imageUrl": "https://example.com/images/emperors/tiberius.jpg",
+    "status": "Deceased",
+    "titles": ["Imperator", "Princeps"],
+    "era": {
+      "id": "ERA-001",
+      "name": "Principate",
+      "startYear": -27,
+      "endYear": 284,
+      "description": "Periode waarin keizers formeel macht deelden met de Senaat."
+    }
+  },
+  {
+    "id": "EMP-003",
+    "name": "Caligula",
+    "description": "Caligula stond bekend om zijn extravagantie en onvoorspelbare gedrag.",
+    "age": 28,
+    "isActive": false,
+    "birthDate": "0012-08-31",
+    "imageUrl": "https://example.com/images/emperors/caligula.jpg",
+    "status": "Assassinated",
+    "titles": ["Imperator", "Princeps"],
+    "era": {
+      "id": "ERA-001",
+      "name": "Principate",
+      "startYear": -27,
+      "endYear": 284,
+      "description": "Periode waarin keizers formeel macht deelden met de Senaat."
+    }
+  },
+  {
+    "id": "EMP-004",
+    "name": "Claudius",
+    "description": "Claudius breidde het Romeinse Rijk uit, waaronder de verovering van Brittannië.",
+    "age": 63,
+    "isActive": false,
+    "birthDate": "0010-08-01",
+    "imageUrl": "https://example.com/images/emperors/claudius.jpg",
+    "status": "Poisoned",
+    "titles": ["Imperator", "Princeps"],
+    "era": {
+      "id": "ERA-001",
+      "name": "Principate",
+      "startYear": -27,
+      "endYear": 284,
+      "description": "Periode waarin keizers formeel macht deelden met de Senaat."
+    }
+  },
+  {
+    "id": "EMP-005",
+    "name": "Nero",
+    "description": "Nero was een controversiële keizer, bekend om vervolgingen en culturele ambities.",
+    "age": 30,
+    "isActive": false,
+    "birthDate": "0037-12-15",
+    "imageUrl": "https://example.com/images/emperors/nero.jpg",
+    "status": "Suicide",
+    "titles": ["Imperator", "Princeps"],
+    "era": {
+      "id": "ERA-001",
+      "name": "Principate",
+      "startYear": -27,
+      "endYear": 284,
+      "description": "Periode waarin keizers formeel macht deelden met de Senaat."
+    }
+  },
+  {
+    "id": "EMP-006",
+    "name": "Trajanus",
+    "description": "Trajanus leidde het Romeinse Rijk tot zijn grootste territoriale omvang.",
+    "age": 63,
+    "isActive": false,
+    "birthDate": "0053-09-18",
+    "imageUrl": "https://example.com/images/emperors/trajan.jpg",
+    "status": "Deceased",
+    "titles": ["Imperator", "Optimus Princeps"],
+    "era": {
+      "id": "ERA-002",
+      "name": "High Empire",
+      "startYear": 96,
+      "endYear": 235,
+      "description": "Periode van stabiliteit en expansie binnen het Romeinse Rijk."
+    }
+  },
+  {
+    "id": "EMP-007",
+    "name": "Hadrianus",
+    "description": "Hadrianus stond bekend om defensieve politiek en architecturale projecten.",
+    "age": 62,
+    "isActive": false,
+    "birthDate": "0076-01-24",
+    "imageUrl": "https://example.com/images/emperors/hadrian.jpg",
+    "status": "Deceased",
+    "titles": ["Imperator", "Princeps"],
+    "era": {
+      "id": "ERA-002",
+      "name": "High Empire",
+      "startYear": 96,
+      "endYear": 235,
+      "description": "Periode van stabiliteit en expansie binnen het Romeinse Rijk."
+    }
+  },
+  {
+    "id": "EMP-008",
+    "name": "Marcus Aurelius",
+    "description": "Marcus Aurelius was een filosoof-keizer en auteur van Meditaties.",
+    "age": 58,
+    "isActive": false,
+    "birthDate": "0121-04-26",
+    "imageUrl": "https://example.com/images/emperors/marcus-aurelius.jpg",
+    "status": "Deceased",
+    "titles": ["Imperator", "Philosopher King"],
+    "era": {
+      "id": "ERA-002",
+      "name": "High Empire",
+      "startYear": 96,
+      "endYear": 235,
+      "description": "Periode van stabiliteit en expansie binnen het Romeinse Rijk."
+    }
+  },
+  {
+    "id": "EMP-009",
+    "name": "Diocletianus",
+    "description": "Diocletianus hervormde het bestuur en introduceerde de tetrarchie.",
+    "age": 68,
+    "isActive": false,
+    "birthDate": "0244-12-22",
+    "imageUrl": "https://example.com/images/emperors/diocletian.jpg",
+    "status": "Retired",
+    "titles": ["Augustus"],
+    "era": {
+      "id": "ERA-003",
+      "name": "Dominate",
+      "startYear": 284,
+      "endYear": 476,
+      "description": "Periode van absolute keizerlijke macht en administratieve hervormingen."
+    }
+  },
+  {
+    "id": "EMP-010",
+    "name": "Constantijn de Grote",
+    "description": "Constantijn legaliseerde het christendom en stichtte Constantinopel.",
+    "age": 65,
+    "isActive": false,
+    "birthDate": "0272-02-27",
+    "imageUrl": "https://example.com/images/emperors/constantine.jpg",
+    "status": "Deceased",
+    "titles": ["Augustus"],
+    "era": {
+      "id": "ERA-003",
+      "name": "Dominate",
+      "startYear": 284,
+      "endYear": 476,
+      "description": "Periode van absolute keizerlijke macht en administratieve hervormingen."
+    }
+  }
+]

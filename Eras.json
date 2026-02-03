@@ -1,0 +1,23 @@
+[
+  {
+    "id": "ERA-001",
+    "name": "Principate",
+    "startYear": -27,
+    "endYear": 284,
+    "description": "Periode waarin keizers officieel samenwerkten met de Senaat."
+  },
+  {
+    "id": "ERA-002",
+    "name": "High Empire",
+    "startYear": 96,
+    "endYear": 235,
+    "description": "Gouden eeuw van Romeinse macht, stabiliteit en expansie."
+  },
+  {
+    "id": "ERA-003",
+    "name": "Dominate",
+    "startYear": 284,
+    "endYear": 476,
+    "description": "Autoritaire fase met sterke centralisatie van macht."
+  }
+]
