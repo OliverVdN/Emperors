@@ -1,0 +1,37 @@
+<head>
+    <meta charset="UTF-8">
+    <title>Roman Emperors</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+
+<%- include("partials/navbar") %>
+
+<div class="container">
+    <div class="detail-card">
+        <h2><%= era.name %> (<%= era.startYear %> - <%= era.endYear %>)</h2>
+        <p><%= era.description %></p>
+    </div>
+
+    <h3>Related Emperors</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Status</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% relatedEmperors.forEach(e => { %>
+                <tr>
+                    <td><%= e.name %></td>
+                    <td><%= e.age %></td>
+                    <td><%= e.status %></td>
+                    <td><a class="button" href="/emperors/<%= e.id %>">Details</a></td>
+                </tr>
+            <% }) %>
+        </tbody>
+    </table>
+</div>

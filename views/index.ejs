@@ -1,0 +1,50 @@
+<head>
+    <meta charset="UTF-8">
+    <title>Roman Emperors</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+
+
+
+
+<%- include("partials/navbar") %>
+
+<div class="container">
+    <form method="GET" class="filter-sort">
+        <input type="text" name="search" value="<%= search || '' %>" placeholder="Filter by name">
+        <select name="sort">
+            <option value="">Sort by...</option>
+            <option value="name" <%= sort==='name'?'selected':'' %>>Name</option>
+            <option value="age" <%= sort==='age'?'selected':'' %>>Age</option>
+        </select>
+        <select name="order">
+            <option value="asc" <%= order==='asc'?'selected':'' %>>Ascending</option>
+            <option value="desc" <%= order==='desc'?'selected':'' %>>Descending</option>
+        </select>
+        <button class="button" type="submit">Apply</button>
+    </form>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Status</th>
+                <th>Era</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% emperors.forEach(e => { %>
+                <tr>
+                    <td><%= e.name %></td>
+                    <td><%= e.age %></td>
+                    <td><%= e.status %></td>
+                    <td><a href="/eras/<%= e.era.id %>"><%= e.era.name %></a></td>
+                    <td><a class="button" href="/emperors/<%= e.id %>">Details</a></td>
+                </tr>
+            <% }) %>
+        </tbody>
+    </table>
+</div>

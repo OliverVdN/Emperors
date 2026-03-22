@@ -1,0 +1,24 @@
+<head>
+    <meta charset="UTF-8">
+    <title>Roman Emperors</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+
+
+
+<%- include("partials/navbar") %>
+
+<div class="container">
+    <div class="detail-card">
+        <h2><%= emperor.name %> (<%= emperor.id %>)</h2>
+        <img src="<%= emperor.imageUrl %>" alt="<%= emperor.name %>">
+        <p><strong>Description:</strong> <%= emperor.description %></p>
+        <p><strong>Age:</strong> <%= emperor.age %></p>
+        <p><strong>Status:</strong> <%= emperor.status %></p>
+        <p><strong>Birthdate:</strong> <%= emperor.birthDate %></p>
+        <p><strong>Titles:</strong> <%= emperor.titles.join(", ") %></p>
+        <p><strong>Era:</strong> <a href="/eras/<%= emperor.era.id %>"><%= emperor.era.name %></a></p>
+        <a class="button" href="/">Back to overview</a>
+    </div>
+</div>

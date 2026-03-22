@@ -1,73 +1,76 @@
-import * as fs from "fs";
-import * as readline from "readline-sync";
+import express from "express";
+import path, { dirname } from "path";
+import { getEmperors, getEras } from "./data"
 import { Emperor } from "./Emperors";
+import { Era } from "./Emperors";
 
+const app = express();
+const PORT = 3000;
 
-const rawData = fs.readFileSync("Emperors.json", "utf-8");
-const emperors: Emperor[] = JSON.parse(rawData);
+app.set("view engine", "ejs");
+app.set("views", path.join(__dirname, "views"));
 
+app.use(express.static(path.join(__dirname, "public")));
+app.use(express.urlencoded({ extended: true }));
 
-function main() {
-  let running = true;
+app.get("/", async (req, res) => {
+  let emperors: Emperor[] = await getEmperors();
+  const search = req.query.search as string;
+  const sort = req.query.sort as string;
+  const order = req.query.order as string;
 
-  do {
-    console.log("\nWelcome to the Roman Emperors Viewer!\n");
-
-    let choices = [
-      "View all emperors",
-      "Filter by ID",
-      "Exit"
-    ];
-
-    let choiceIndex = readline.keyInSelect(choices, "What do you want to do?", { cancel: false });
-
-    switch (choiceIndex) {
-      case 0:
-        viewAll();
-        break;
-      case 1:
-        filterById();
-        break;
-      case 2:
-        running = false;
-        break;
-    }
-
-  } while (running);
-
-  console.log("Goodbye!");
-}
-
-function viewAll() {
-  console.log("\nAll Roman Emperors:\n");
-
-  emperors.forEach(emp => {
-    console.log(`- ${emp.name} (${emp.id})`);
-  });
-}
-
-function filterById() {
-  let id = readline.question("\nEnter the ID you want to filter by. Example = 'EMP-001': ");
-
-  const emperor = emperors.find(e => e.id === id);
-
-  if (!emperor) {
-    console.log("\n Emperor not found!\n");
-    return;
+  // FILTER
+  if (search) {
+    emperors = emperors.filter(e =>
+      e.name.toLowerCase().includes(search.toLowerCase())
+    );
   }
 
-  console.log(`\n- ${emperor.name} (${emperor.id})`);
-  console.log( ` - Description: ${emperor.description}`);
-  console.log( ` - Age: ${emperor.age}`);
-  console.log( ` - Active: ${emperor.isActive}`);
-  console.log( ` - Birthdate: ${emperor.birthDate}`);
-  console.log( ` - Image: ${emperor.imageUrl}`);
-  console.log( ` - Status: ${emperor.status}`);
-  console.log( ` - Titles: ${emperor.titles.join(", ")}`);
-  console.log( ` - Era: ${emperor.era.name}`);
-  console.log( `   - Period: ${emperor.era.startYear} to ${emperor.era.endYear}`);
-  console.log( `   - Description: ${emperor.era.description}\n`);
-}
+  // SORT
+  if (sort) {
+    emperors.sort((a: any, b: any) => {
+      const valA = (a as any)[sort];
+      const valB = (b as any)[sort];
+      if (valA < valB) return order === "desc" ? 1 : -1;
+      if (valA > valB) return order === "desc" ? -1 : 1;
+      return 0;
+    });
+  }
 
+  // Stuur alle variabelen naar de EJS template
+  res.render("index", { emperors, search, sort, order });
+});
 
-main();
+// DETAIL EMPEROR
+app.get("/emperors/:id", async (req, res) => {
+  const emperors = await getEmperors();
+  const emperor = emperors.find((e: any) => e.id === req.params.id);
+
+  if (!emperor) {
+    return res.status(404).send("Not found");
+  }
+
+  res.render("detail", { emperor });
+});
+
+// ERA 
+app.get("/eras/:id", async (req, res) => {
+  const emperors = await getEmperors();
+  const eras = await getEras();
+
+  const era = eras.find((e: any) => e.id === req.params.id);
+
+  if (!era) {
+    return res.status(404).send("Era not found");
+  }
+
+  const relatedEmperors = emperors.filter(
+    (e: any) => e.era.id === era.id
+  );
+
+  res.render("era", { era, relatedEmperors });
+});
+
+app.listen(PORT, () => {
+  console.log(`Server running on http://localhost:${PORT}`);
+});
